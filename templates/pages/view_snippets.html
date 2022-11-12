@@ -68,14 +68,40 @@
         <div class="row">
             <div class="col">
                 <p>На данной страницы будут отображаться все созданные сниппеты.</p>
-                <p>Пока тут пусто, скоро мы это исправим!</p>
+                <p>Пока тут просто пример, но скоро заменим реальными сниппетами из БД!</p>
                 <hr>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-4 offset-2">
-                Список сниппетов:
+            <div class="col">
+                <table class="table table-striped">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Название</th>
+                        <th scope="col">Дата создания</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    <tr>
+                        <td scope="row">1</td>
+                        <td><a href="/snippets/1">Пример сниппета</a></td>
+                        <td>23.05.2019 11:32</td>
+                    </tr>
+
+                    <tr>
+                        <td scope="row">2</td>
+                        <td><a href="/snippets/2">И ещё один пример</a></td>
+                        <td>23.05.2019 11:34</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+                <div align="right">
+                    <i style="color: gray;">Всего сниппетов: 2</i>
+                </div>
             </div>
         </div>
     </div>
