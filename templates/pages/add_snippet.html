@@ -67,6 +67,7 @@
         <div class="row">
             <div class="col">
                 <form action="" method="post">
+                    {% csrf_token %}
                     <div class="form-group row">
                         <div class="col-8">
                             <input type="text" name="name" class="form-control form-control-lg" placeholder="Название сниппета">
@@ -83,7 +84,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-8">
-                            <textarea cols="96" rows="10" placeholder="Код сниппета"></textarea>
+                            <textarea name="code" cols="96" rows="10" placeholder="Код сниппета"></textarea>
                         </div>
                     </div>
                     <div class="form-group row">

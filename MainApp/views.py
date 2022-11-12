@@ -8,8 +8,18 @@ def index_page(request):
 
 
 def add_snippet_page(request):
-    context = {'pagename': 'Добавление нового сниппета'}
-    return render(request, 'pages/add_snippet.html', context)
+    if request.method == "POST":
+        form_data = request.POST
+        snippet = Snippet(
+            name=form_data['name'],
+            lang=form_data['lang'],
+            code=form_data['code']
+        )
+        snippet.save()
+        return redirect('snippet-list')
+    elif request.method == "GET":
+        context = {'pagename': 'Добавление нового сниппета'}
+        return render(request, 'pages/add_snippet.html', context)
 
 
 def snippets_page(request):
