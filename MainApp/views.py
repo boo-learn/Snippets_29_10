@@ -1,7 +1,7 @@
 from django.http import Http404
 from django.shortcuts import render, redirect
 from MainApp.models import Snippet
-from MainApp.forms import SnippetForm
+from MainApp.forms import SnippetForm, UserRegistrationForm
 from django.contrib import auth
 
 
@@ -52,3 +52,15 @@ def login_page(request):
 def logout_page(request):
     auth.logout(request)
     return redirect('home')
+
+
+def registration(request):
+    if request.method == "POST": # Создаем пользователя
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('home')
+    elif request.method == "GET": # Страницу с формой
+        form = UserRegistrationForm()
+        context = {'form': form}
+        return render(request, 'pages/registration.html', context)
