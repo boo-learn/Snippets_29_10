@@ -12,16 +12,11 @@ def index_page(request):
 
 def add_snippet_page(request):
     if request.method == "POST":
-        # form_data = request.POST
-        # snippet = Snippet(
-        #     name=form_data['name'],
-        #     lang=form_data['lang'],
-        #     code=form_data['code']
-        # )
-        # snippet.save()
         form = SnippetForm(request.POST)
         if form.is_valid():
-            form.save()
+            snippet = form.save(commit=False)
+            snippet.user = request.user
+            snippet.save()
         return redirect('snippet-list')
     elif request.method == "GET":
         form = SnippetForm()
