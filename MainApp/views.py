@@ -27,6 +27,15 @@ def add_snippet_page(request):
         return render(request, 'pages/add_snippet.html', context)
 
 
+def snippet_detail(request, snippet_id):
+    snippet = Snippet.objects.get(pk=snippet_id)
+    context = {
+        'pagename': 'Страница сниппета',
+        "snippet": snippet,
+    }
+    return render(request, 'pages/snippet_page.html', context)
+
+
 def snippets_page(request):
     snippets = Snippet.objects.all()
     context = {
@@ -55,12 +64,12 @@ def logout_page(request):
 
 
 def registration(request):
-    if request.method == "POST": # Создаем пользователя
+    if request.method == "POST":  # Создаем пользователя
         form = UserRegistrationForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('home')
-    elif request.method == "GET": # Страницу с формой
+    elif request.method == "GET":  # Страницу с формой
         form = UserRegistrationForm()
         context = {'form': form}
         return render(request, 'pages/registration.html', context)
