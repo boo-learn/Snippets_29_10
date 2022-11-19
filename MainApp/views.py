@@ -41,10 +41,12 @@ def add_snippet_page(request):
 def snippet_detail(request, snippet_id):
     snippet = Snippet.objects.get(pk=snippet_id)
     comment_form = CommentForm()
+    comments = snippet.comments.all()
     context = {
         'pagename': 'Страница сниппета',
         "snippet": snippet,
-        "comment_form": comment_form
+        "comments": comments,
+        "comment_form": comment_form,
     }
     return render(request, 'pages/snippet_page.html', context)
 
