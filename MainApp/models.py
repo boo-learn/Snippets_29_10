@@ -14,3 +14,10 @@ class Snippet(models.Model):
     creation_date = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(to=User, on_delete=models.CASCADE,
                              blank=True, null=True)
+
+
+class Comment(models.Model):
+   text = models.TextField(max_length=2000)
+   creation_date = models.DateTimeField(auto_now=True)
+   author = models.ForeignKey(to=User, on_delete=models.CASCADE)
+   snippet = models.ForeignKey(to=Snippet, on_delete=models.CASCADE)
