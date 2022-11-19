@@ -6,7 +6,17 @@ from django.contrib import auth
 
 
 def index_page(request):
-    context = {'pagename': 'PythonBin'}
+    print("user = ", request.user)
+    if request.user.is_authenticated:
+        errors = []
+    else:
+        errors = ["password or username not correct"]
+
+    context = {
+        'pagename': 'PythonBin',
+        "errors": errors
+    }
+
     return render(request, 'pages/index.html', context)
 
 
@@ -52,9 +62,6 @@ def login_page(request):
         user = auth.authenticate(request, username=username, password=password)
         if user is not None:
             auth.login(request, user)
-        else:
-            # Return error message
-            pass
     return redirect('home')
 
 
@@ -69,6 +76,9 @@ def registration(request):
         if form.is_valid():
             form.save()
             return redirect('home')
+        else:
+            context = {'form': form}
+            return render(request, 'pages/registration.html', context)
     elif request.method == "GET":  # Страницу с формой
         form = UserRegistrationForm()
         context = {'form': form}
