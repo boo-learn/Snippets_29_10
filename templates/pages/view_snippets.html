@@ -33,7 +33,11 @@
                     <thead class="thead-dark">
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Название</th>
+                        <th scope="col">
+                            <a href="?sort={{ sort }}"> Название </a>
+                            {% if sort == 'name' %}<i class="fa-solid fa-sort-up"></i> {% endif %}
+                            {% if sort == '-name' %}<i class="fa-solid fa-sort-down"></i> {% endif %}
+                        </th>
                         <th scope="col">Дата создания</th>
                         <th scope="col">Язык</th>
                         <th scope="col">Автор</th>
