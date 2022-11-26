@@ -15,7 +15,18 @@
                 <hr>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col">
+                <form method="GET">
+                    <select name="lang">
+                        <option value="py" {% if lang == "py" %}selected{% endif %}>python</option>
+                        <option value="js" {% if lang == "js" %}selected{% endif %}>javascript</option>
+                        <option value="cpp" {% if lang == "cpp" %}selected{% endif %}>C++</option>
+                    </select>
+                    <button type="submit">Применить</button>
+                </form>
+            </div>
+        </div>
         <div class="row">
             <div class="col">
                 <table class="table table-striped">

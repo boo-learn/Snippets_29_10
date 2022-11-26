@@ -59,9 +59,15 @@ def snippet_delete(request, snippet_id):
 
 def snippets_page(request):
     snippets = Snippet.objects.all()
+
+    lang = request.GET.get("lang")
+    if lang is not None:
+        snippets = snippets.filter(lang=lang)
+
     context = {
         'pagename': 'Просмотр сниппетов',
-        'snippets': snippets
+        'snippets': snippets,
+        'lang': lang
     }
     return render(request, 'pages/view_snippets.html', context)
 
