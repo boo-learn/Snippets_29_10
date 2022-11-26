@@ -1,0 +1,35 @@
+[
+  {
+    "model": "MainApp.snippet",
+    "fields": {
+      "name": "spam-snippet1",
+      "lang": "py",
+      "code": "code",
+      "creation_date": "2022-11-26T07:09:07.587Z",
+      "user": 1,
+      "private": true
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "fields": {
+      "name": "spam-snippet2",
+      "lang": "py",
+      "code": "code",
+      "creation_date": "2022-11-26T07:09:07.587Z",
+      "user": 1,
+      "private": true
+    }
+  },
+  {
+    "model": "MainApp.snippet",
+    "fields": {
+      "name": "spam-snippet3",
+      "lang": "py",
+      "code": "code",
+      "creation_date": "2022-11-26T07:09:07.587Z",
+      "user": 1,
+      "private": true
+    }
+  }
+]
